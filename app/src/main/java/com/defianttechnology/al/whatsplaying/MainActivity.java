@@ -16,13 +16,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public ArrayList<Movie> comingSoonList;
-    public ArrayList<Movie> inTheatresList;
-    RESTinterface grabJSON;
-    RESTinterface grabInTheatreJSON;;
-    String comingSoon;
-    URL comingSoonConnectionString = null;
-    URL inTheatresConnectionString = null;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
 

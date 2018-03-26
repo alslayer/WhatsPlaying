@@ -1,6 +1,5 @@
 package com.defianttechnology.al.whatsplaying;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -28,7 +26,6 @@ public class Tab2 extends android.support.v4.app.Fragment {
     private ListView mainListView ;
     private ArrayAdapter<String> listAdapter ;
     private ArrayList<Movie> inTheatresList;
-    private RESTinterface grabJSON;
     private RESTinterface grabInTheatreJSON;;
     private URL inTheatresConnectionString = null;
 
@@ -44,7 +41,6 @@ public class Tab2 extends android.support.v4.app.Fragment {
 
         // Pass in the listview
         mainListView = getView().findViewById(R.id.movieList);
-
         //Grab the data
         new Tab2.MyTask(mainListView).execute();
     }
@@ -55,10 +51,8 @@ public class Tab2 extends android.support.v4.app.Fragment {
         for(Movie movie: comingSoonList) {
             movieList.add(movie.getName() + "\n" + "Popularity: " + movie.getPopularity());
         }
-
         // Create ArrayAdapter using the planet list.
         listAdapter = new ArrayAdapter<String>(context, R.layout.simplerow, movieList);
-
         // Set the ArrayAdapter as the ListView's adapter.
         mainListView.setAdapter( listAdapter );
     }
@@ -98,7 +92,6 @@ public class Tab2 extends android.support.v4.app.Fragment {
             }
 
             // Send connection strings to RESTinterface and get back movies
-            grabJSON = new RESTinterface(getContext());
             grabInTheatreJSON = new RESTinterface(getContext());
             inTheatresList = new ArrayList<>();
             try {
@@ -118,33 +111,3 @@ public class Tab2 extends android.support.v4.app.Fragment {
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

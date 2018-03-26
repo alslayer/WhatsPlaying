@@ -42,7 +42,6 @@ public class Tab1 extends android.support.v4.app.Fragment {
 
         // Pass in the listview
         mainListView = getView().findViewById(R.id.movieList);
-
         //Grab the data
         new MyTask(mainListView).execute();
     }
@@ -53,10 +52,8 @@ public class Tab1 extends android.support.v4.app.Fragment {
         for(Movie movie: comingSoonList) {
             movieList.add(movie.getName() + "\n" + "Popularity: " + movie.getPopularity());
         }
-
         // Create ArrayAdapter using the planet list.
         listAdapter = new ArrayAdapter<String>(context, R.layout.simplerow, movieList);
-
         // Set the ArrayAdapter as the ListView's adapter.
         mainListView.setAdapter( listAdapter );
     }
